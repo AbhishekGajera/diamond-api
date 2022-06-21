@@ -6,6 +6,10 @@ const port = process.env.PORT;
 const cors = require("cors");
 
 const ProductRouter = require("./routes/Product");
+const PartyRouter = require("./routes/Party");
+const StockRouter = require("./routes/Stock");
+
+
 // create express app
 const app = express();
 mongoose
@@ -23,6 +27,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors());
 app.use(bodyParser.json())
 app.use(ProductRouter);
+app.use(PartyRouter);
+app.use(StockRouter);
+
+
+
 
 
 // define a simple route
