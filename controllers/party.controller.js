@@ -23,7 +23,7 @@ const partyDelete = catchAsync(async (req, res) => {
 });
 
 const getParty = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['name', 'role','user']);
+  const filter = pick(req.query, ['type']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await getPartyList(filter, options);
   res.send(result);

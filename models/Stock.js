@@ -7,8 +7,21 @@ const { toJSON,paginate } = require('./plugins');
 
 const stockSchema = new mongoose.Schema({
 
-
+  stock_type : {
+    type: Number,
+    required: true,
+    enum: [0,1] // 0 is for outside and 1 is for inside
+  },
+  current_assign: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: 'Party',
+    autopopulate: true,
+  },
   lot_no: {
+    type: String,
+    required: true,
+  },
+  weight: {
     type: String,
     required: true,
   },

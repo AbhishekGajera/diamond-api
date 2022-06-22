@@ -23,7 +23,7 @@ const stockDelete = catchAsync(async (req, res) => {
 });
 
 const getStock = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['name', 'role','user']);
+  const filter = pick(req.query, ['stock_type']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await getStockList(filter, options);
   res.send(result);
