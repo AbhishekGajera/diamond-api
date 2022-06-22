@@ -23,7 +23,7 @@ const partySchema = new mongoose.Schema({
   type : {
     type: Number,
     required: true,
-    enum: [0,1]
+    enum: [0,1] // 0 is for outside and 1 is for inside
   }
 },
 {

@@ -17,7 +17,7 @@ const stockSchema = new mongoose.Schema({
     required : true
   },
   defaultDate: {
-    type: Date,
+    type: String,
     // required : true
   },
   party: {
@@ -28,7 +28,7 @@ const stockSchema = new mongoose.Schema({
   status : {
     type: Number,
     required: true,
-    enum: [0,1]
+    enum: [0,1] // 0 is for credit, 1 is for debit
   }
 },
 {
