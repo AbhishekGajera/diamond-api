@@ -19,7 +19,8 @@ const stockSchema = new mongoose.Schema({
   },
   lot_no: {
     type: String,
-    required: true,
+    required: false,
+    default : '',
   },
   weight: {
     type: String,
