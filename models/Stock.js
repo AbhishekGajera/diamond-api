@@ -28,7 +28,8 @@ const stockSchema = new mongoose.Schema({
   },
   stone_id: {
     type : String,
-    required : true
+    required : true,
+    unique : true
   },
   defaultDate: {
     type: String,

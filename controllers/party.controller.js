@@ -3,7 +3,8 @@ const catchAsync = require('../utils/catchAsync');
 const {   addPartys,
     updatePartyById,
   deletePartyById,
-  getPartyList } = require('../services/party.service');
+  getPartyList, 
+  getUniquePartiesByName} = require('../services/party.service');
 const pick = require('../utils/pick');
 
 
@@ -29,9 +30,15 @@ const getParty = catchAsync(async (req, res) => {
   res.send(result);
 });
 
+const getUniqueParty = catchAsync(async (req,res) => {
+  const result = await getUniquePartiesByName();
+  res.send(result);
+})
+
 module.exports = {
   partyAdd,
   partyUpdate,
   partyDelete,
-  getParty
+  getParty,
+  getUniqueParty
 };

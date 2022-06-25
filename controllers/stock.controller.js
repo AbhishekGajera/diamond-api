@@ -1,11 +1,15 @@
-const httpStatus = require('http-status');
-const catchAsync = require('../utils/catchAsync');
-const {   addStock,
-    updateStockById,
+const httpStatus = require("http-status");
+const catchAsync = require("../utils/catchAsync");
+const {
+  addStock,
+  updateStockById,
   deleteStockById,
-  getStockList } = require('../services/stock.service');
-const pick = require('../utils/pick');
-
+  getStockList,
+  getStockById,
+  getStockStoneById,
+  getUniqueStockByName,
+} = require("../services/stock.service");
+const pick = require("../utils/pick");
 
 const stockAdd = catchAsync(async (req, res) => {
   const result = await addStock(req.body);
@@ -13,7 +17,7 @@ const stockAdd = catchAsync(async (req, res) => {
 });
 
 const stockUpdate = catchAsync(async (req, res) => {
-  const result = await updateStockById(req.body.stockId,req.body);
+  const result = await updateStockById(req.body.stone_id, req.body);
   res.send(result);
 });
 
@@ -23,15 +27,27 @@ const stockDelete = catchAsync(async (req, res) => {
 });
 
 const getStock = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['stock_type','current_assign']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const filter = pick(req.query, ["stock_type", "current_assign","stone_id","party"]);
+  const options = pick(req.query, ["sortBy", "limit", "page"]);
   const result = await getStockList(filter, options);
   res.send(result);
 });
+
+const getStockByIdController = catchAsync(async (req, res) => {
+  const result = await getStockStoneById(req.params.stockId);
+  res.send(result);
+});
+
+const getUniqueStock = catchAsync(async (req,res) => {
+  const result = await getUniqueStockByName();
+  res.send(result);
+})
 
 module.exports = {
   stockAdd,
   stockUpdate,
   stockDelete,
-  getStock
+  getStock,
+  getStockByIdController,
+  getUniqueStock
 };

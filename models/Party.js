@@ -6,8 +6,6 @@ const { toJSON,paginate } = require('./plugins');
 //target
 
 const partySchema = new mongoose.Schema({
-
-
   name: {
     type: String,
     required: true,
@@ -23,7 +21,8 @@ const partySchema = new mongoose.Schema({
   type : {
     type: Number,
     required: true,
-    enum: [0,1] // 0 is for outside and 1 is for inside
+    enum: [0,1], // 0 is for outside and 1 is for inside
+    default: 1
   }
 },
 {

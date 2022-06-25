@@ -19,6 +19,10 @@ router
 .get(partyController.getParty)
 
 router
+.route('/fetch-unique-parties')
+.get(partyController.getUniqueParty)
+
+router
 .route('/delete-party/:partyId')
 .get(partyController.partyDelete)
 

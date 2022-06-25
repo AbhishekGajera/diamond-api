@@ -20,6 +20,14 @@ router
 .get(stockController.getStock)
 
 router
+.route('/stockById/:stockId')
+.get(stockController.getStockByIdController)
+
+router
+.route('/fetch-unique-stocks')
+.get(stockController.getUniqueStock)
+
+router
 .route('/delete-stock/:stockId')
 .get(stockController.stockDelete)
 

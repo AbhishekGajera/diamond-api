@@ -22,6 +22,15 @@ const addStock = async (leaveBody) => {
   return Stock.findById(id);
 };
 
+/**
+ * Get appoinments by id
+ * @param {ObjectId} id
+ * @returns {Promise<Stock>}
+ */
+ const getStockStoneById = async (id) => {
+  return Stock.findOne({ stone_id : id});
+};
+
 
 /**
  * Update appoinments by id
@@ -29,18 +38,11 @@ const addStock = async (leaveBody) => {
  * @param {Object} updateBody
  * @returns {Promise<User>}
  */
- const updateStockById = async (leaveId, updateBody) => {
-  const stocks = await getStockById(leaveId);
+ const updateStockById = async (stone_id, updateBody) => {
+  const stocks = await getStockStoneById(stone_id);
   if (!stocks) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Stocks not found');
   }
-
-//   if(updateBody?.user){
-//     const user = await getUserById(updateBody?.user)
-//     if(!user){
-//       throw new ApiError(httpStatus.NOT_FOUND, 'User not found');
-//     }
-//   }
 
   Object.assign(stocks, updateBody);
   await stocks.save();
@@ -76,11 +78,17 @@ const addStock = async (leaveBody) => {
  return Stocks;
 };
 
-
+const getUniqueStockByName = async () => {
+  const stockList = await Stock.find().distinct("party");
+  return stockList
+};
 
 module.exports = {
-    addStock,
-    updateStockById,
+  addStock,
+  updateStockById,
   deleteStockById,
-  getStockList
+  getStockList,
+  getStockById,
+  getStockStoneById,
+  getUniqueStockByName
 };
