@@ -23,6 +23,11 @@ const partySchema = new mongoose.Schema({
     required: true,
     enum: [0,1], // 0 is for outside and 1 is for inside
     default: 1
+  },
+  outsideParty : {
+    type : Number,
+    required : false,
+    enum : [ 0,1 ] // 0 is for job work, 1 is for merchant
   }
 },
 {
