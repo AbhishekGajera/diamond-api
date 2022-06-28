@@ -34,8 +34,11 @@ const getStock = catchAsync(async (req, res) => {
 });
 
 const getStockByIdController = catchAsync(async (req, res) => {
-  const result = await getStockStoneById(req.params.stockId);
-  res.send(result);
+  try {
+    const result = await getStockStoneById(req.params.stockId);
+    res.send(result);
+  } catch (error) {
+  }
 });
 
 const getUniqueStock = catchAsync(async (req,res) => {
