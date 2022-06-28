@@ -22,6 +22,11 @@ const stockSchema = new mongoose.Schema({
     required: false,
     default : '',
   },
+  party_code: {
+    type: String,
+    required: false,
+    default : '',
+  },
   weight: {
     type: String,
     required: true,
