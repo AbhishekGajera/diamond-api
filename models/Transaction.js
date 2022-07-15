@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 
 const transactionSchema = mongoose.Schema(
   {
-    cuttingno: {
-      type: String,
-      required: true,
-    },
+  
     partyIdFrom: {
       id: {
         type: String,
@@ -26,9 +23,16 @@ const transactionSchema = mongoose.Schema(
         type: String,
       },
     },
-    lastWeight : {
+    fromWeight : {
         type : String
-    }
+    },
+    toWeight : {
+      type : String
+    }, 
+    stone_id: {
+      type : String,
+      required : true
+    },
 
   },
 

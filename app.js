@@ -8,6 +8,10 @@ const cors = require("cors");
 const ProductRouter = require("./routes/Product");
 const PartyRouter = require("./routes/Party");
 const StockRouter = require("./routes/Stock");
+const TransactionRouter = require("./routes/Transaction");
+const ExportRouter = require("./routes/Export");
+
+
 
 
 // create express app
@@ -29,6 +33,10 @@ app.use(bodyParser.json())
 app.use(ProductRouter);
 app.use(PartyRouter);
 app.use(StockRouter);
+app.use(TransactionRouter);
+app.use(ExportRouter);
+
+
 
 
 

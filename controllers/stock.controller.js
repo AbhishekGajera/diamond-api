@@ -35,6 +35,7 @@ const getStock = catchAsync(async (req, res) => {
 
 const getStockByIdController = catchAsync(async (req, res) => {
   try {
+    console.log("req",req.params)
     const result = await getStockStoneById(req.params.stockId);
     res.send(result);
   } catch (error) {
