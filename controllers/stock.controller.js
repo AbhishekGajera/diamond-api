@@ -17,7 +17,7 @@ const stockAdd = catchAsync(async (req, res) => {
 });
 
 const stockUpdate = catchAsync(async (req, res) => {
-  const result = await updateStockById(req.body.stone_id, req.body);
+  const result = await updateStockById(req.params.id, req.body);
   res.send(result);
 });
 
@@ -35,7 +35,6 @@ const getStock = catchAsync(async (req, res) => {
 
 const getStockByIdController = catchAsync(async (req, res) => {
   try {
-    console.log("req",req.params)
     const result = await getStockStoneById(req.params.stockId);
     res.send(result);
   } catch (error) {

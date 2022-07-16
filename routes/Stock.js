@@ -12,7 +12,7 @@ router
 .post('/add-stock',stockController.stockAdd)
 
 router
-.route('/update-stock')
+.route(`/update-stock/:id`)
 .patch(stockController.stockUpdate)
 
 router

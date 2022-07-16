@@ -39,7 +39,7 @@ const addStock = async (leaveBody) => {
  * @returns {Promise<User>}
  */
  const updateStockById = async (stone_id, updateBody) => {
-  const stocks = await getStockStoneById(stone_id);
+  const stocks = await getStockById(stone_id);
   if (!stocks) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Stocks not found');
   }
