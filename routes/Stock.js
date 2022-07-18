@@ -16,6 +16,10 @@ router
 .patch(stockController.stockUpdate)
 
 router
+.route(`/update-stock-by-stone/:id`)
+.patch(stockController.stockUpdateByStoneId)
+
+router
 .route('/fetch-stock')
 .get(stockController.getStock)
 

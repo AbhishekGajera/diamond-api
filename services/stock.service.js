@@ -49,6 +49,23 @@ const addStock = async (leaveBody) => {
   return stocks;
 };
 
+/**
+ * Update appoinments by id
+ * @param {ObjectId} leaveId
+ * @param {Object} updateBody
+ * @returns {Promise<User>}
+ */
+ const updateStockByStoneId = async (stone_id, updateBody) => {
+  const stocks = await getStockStoneById(stone_id);
+  if (!stocks) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Stocks not found');
+  }
+
+  Object.assign(stocks, updateBody);
+  await stocks.save();
+  return stocks;
+};
+
 
 
 /**
@@ -90,5 +107,6 @@ module.exports = {
   getStockList,
   getStockById,
   getStockStoneById,
-  getUniqueStockByName
+  getUniqueStockByName,
+  updateStockByStoneId
 };

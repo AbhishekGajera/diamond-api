@@ -8,6 +8,7 @@ const {
   getStockById,
   getStockStoneById,
   getUniqueStockByName,
+  updateStockByStoneId
 } = require("../services/stock.service");
 const pick = require("../utils/pick");
 
@@ -18,6 +19,11 @@ const stockAdd = catchAsync(async (req, res) => {
 
 const stockUpdate = catchAsync(async (req, res) => {
   const result = await updateStockById(req.params.id, req.body);
+  res.send(result);
+});
+
+const stockUpdateByStoneId = catchAsync(async (req, res) => {
+  const result = await updateStockByStoneId(req.params.id, req.body);
   res.send(result);
 });
 
@@ -52,5 +58,6 @@ module.exports = {
   stockDelete,
   getStock,
   getStockByIdController,
-  getUniqueStock
+  getUniqueStock,
+  stockUpdateByStoneId
 };
